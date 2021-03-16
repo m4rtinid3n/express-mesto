@@ -6,7 +6,7 @@ const errorsRoutes = require('./errors.js');
 
 routers.use((req, res, next) => {
   req.user = {
-    _id: '604f8ac00d1e5171d8bbbf99',
+    _id: '604f8ac00d1e5171d8bbbf9',
   };
 
   next();
@@ -17,4 +17,5 @@ routers.use('/', userRoutes);
 routers.use('/', errorsRoutes);
 
 module.exports = routers;
+
 
