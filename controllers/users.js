@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const validatorErr = require('../utils/validatorErrForUpdUsers');
 
 const getUsers = async (req, res) => {
   try {
