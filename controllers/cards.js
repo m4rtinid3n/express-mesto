@@ -24,7 +24,7 @@ const getCard = async (req, res) => {
     if (err.name === 'CastError') {
       return res.status(400).send({ message: 'Переданы некорректные данные' });
     } if (err.message === 'NotFound') {
-      return res.status(404).send({ message: 'Объект не найден' });
+      return res.status(400).send({ message: 'Объект не найден' });
     }
     res.status(500).send({ message: 'Ошибка сервера' });
   }
