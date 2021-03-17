@@ -52,11 +52,11 @@ const createProfile = async (req, res) => {
 
 const updateProfile = async (req, res) => {
   try {
-    const { name, about, avatar } = req.body;
+    const { name, about } = req.body;
     const id = req.user._id;
 
     const opts = { runValidators: true, new: true };
-    const data = await User.findByIdAndUpdate(id, { name, about, avatar }, opts).orFail(new Error('NotFound'));
+    const data = await User.findByIdAndUpdate(id, { name, about }, opts).orFail(new Error('NotFound'));
     res.status(200).send(data);
   } catch (err) {
     validatorErr(err, res);
