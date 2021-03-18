@@ -14,23 +14,6 @@ const getCards = async (req, res) => {
   return null;
 };
 
-const getCard = async (req, res) => {
-  const { id } = req.params;
-  try {
-    const queryCard = await Card.findById(id).orFail(new Error('NotFound'));
-
-    res.send(queryCard);
-  } catch (err) {
-    if (err.name === 'CastError') {
-      return res.status(400).send({ message: 'Переданы некорректные данные' });
-    } if (err.message === 'NotFound') {
-      return res.status(404).send({ message: 'Объект не найден' });
-    }
-    res.status(500).send({ message: 'Ошибка сервера' });
-  }
-  return null;
-};
-
 const createCard = async (req, res) => {
   try {
     const { name, link } = req.body;
@@ -111,7 +94,6 @@ const dislikeCard = async (req, res) => {
 
 module.exports = {
   getCards,
-  getCard,
   createCard,
   deleteCard,
   likeCard,
